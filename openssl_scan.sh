@@ -16,7 +16,7 @@ search_directory="${1:-/}"
 echo 'This is an example script not meant for production use. To confirm that you understand and accept all responsibility, type: confirm'
 read -r confirm
 
-if [[ "$confirm" != "confirm" ]]; then
+if [[ "$confirm" == "confirm" ]]; then
     if (( only_vulnerable )); then
         regex='^OpenSSL\s*3\.0\.[0-6]'
     else
