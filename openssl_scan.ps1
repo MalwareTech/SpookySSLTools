@@ -1,6 +1,6 @@
 # BEGIN CONFIG
 # set to $true to scan all drives
-$scanalldrives = $true
+$scan_all_drives = $true
 
 # set the directory to search for OpenSSL libraries in (default: C:\)
 # only needed if scanalldrives is $false !
@@ -20,7 +20,7 @@ if ($confirm -eq “confirm”) {
 	    $regex = "OpenSSL\s*[0-9].[0-9].[0-9]"
     }
 
-    if ($scanalldrives){
+    if ($scan_all_drives){
         $search_directory =  (Get-PSDrive -PSProvider FileSystem).Root
     }
 
