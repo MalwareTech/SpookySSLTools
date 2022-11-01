@@ -1,6 +1,6 @@
 # BEGIN CONFIG
 # set to $true to scan all drives
-$scan_all_drives = $true
+$scan_all_drives = $false
 
 # set the directory to search for OpenSSL libraries in (default: C:\)
 # only needed if scanalldrives is $false !
