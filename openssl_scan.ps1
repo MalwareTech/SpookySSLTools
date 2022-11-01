@@ -34,5 +34,5 @@ if ($confirm -eq "confirm") {
 	    }
     }
 }else{
-    echo “aborting”
+    echo "aborting"
 }
