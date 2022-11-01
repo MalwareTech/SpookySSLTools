@@ -23,8 +23,8 @@ if [[ "$confirm" == "confirm" ]]; then
         echo "strings could not be found, please install it and try again"
         exit 1
     fi
-
-    find "$search_directory" -type f '(' -name "libcrypto*.so*" -o -name "libssl*.so*" -o -name "libssl*.a*" -o -name "libcrypto*.a*" ')' | while read -r file_name; do
+    
+    find "$search_directory" -type f '(' -name "libcrypto*.so*" -o -name "libssl*.so*" -o -name "libssl*.a*" -o -name "libcrypto*.a*" -o -name "mod_ssl.so" -o -name "openssl" ')' | while read -r file_name; do
         strings -- "$file_name" | grep -e "$regex" | while read -r openssl_version; do
             echo "$openssl_version - $file_name"
         done
