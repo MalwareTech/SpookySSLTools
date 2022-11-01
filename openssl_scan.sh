@@ -22,8 +22,8 @@ if [[ "$confirm" == "confirm" ]]; then
         exit
     fi
 
-    for file_name in $(find $search_directory -type f -name "libcrypto*.so*" -o -name "libssl*.so*" -o -name "libssl*.a*" -o -name "libcrypto*.a*"); do
-        openssl_version=$( strings "$file_name" | grep "$regex")
+    for file_name in $(find $search_directory -type f -a \( -name 'libcrypto*.so*' -o -name 'libssl*.so*' -o -name 'libssl*.a*' -o -name 'libcrypto*.a*' -o -name mod_ssl.so -o -name openssl \)); do
+        openssl_version=$( strings "$file_name" | grep -m1 "$regex")
         if [[ $openssl_version ]]; then
             echo  "$openssl_version" - "$file_name"
         fi
