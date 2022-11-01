@@ -15,9 +15,9 @@ $confirm = Read-Host "This is an example script not meant for production use. To
 if ($confirm -eq "confirm") {
     echo "starting scan"
     if ($only_vulnerable) {
-	    $regex = "OpenSSL\s*3.0.[0-6]"
+	    $regex = "OpenSSL\s*3\.0\.[0-6]"
     }else{
-	    $regex = "OpenSSL\s*[0-9].[0-9].[0-9]"
+	    $regex = "OpenSSL\s*[0-9]\.[0-9]\.[0-9]"
     }
 
     if ($scan_all_drives){
