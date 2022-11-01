@@ -4,7 +4,7 @@ $scan_all_drives = $false
 
 # set the directory to search for OpenSSL libraries in (default: C:\)
 # only needed if scanalldrives is $false !
-$search_directory = “C:\”
+$search_directory = "C:\"
 
 # set to $true to show only OpenSSL version vulnerable to this bug
 $only_vulnerable = $false
@@ -25,7 +25,7 @@ if ($confirm -eq "confirm") {
     }
 
     # search for any DLLs whose name begins with libcrypto
-    Get-ChildItem -Path $search_directory -Include libcrypto*.dll,libssl*.dll -File -Recurse -ErrorAction SilentlyContinue | Foreach-Object {
+    Get-ChildItem -Path $search_directory -Include libcrypto*.dll,libssl*.dll,mod_ssl.so -File -Recurse -ErrorAction SilentlyContinue | Foreach-Object {
 	    # use RegEx to parse the dll strings for an OpenSSL Version Number
 	    $openssl_version = select-string -Path $_ -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value }
 	    if ($openssl_version) {
