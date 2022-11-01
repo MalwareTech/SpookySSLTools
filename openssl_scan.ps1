@@ -21,7 +21,7 @@ if ($confirm -eq “confirm”) {
     }
 
     if ($scanalldrives){
-        $searchdirectory =  (Get-PSDrive -PSProvider FileSystem).Root
+        $search_directory =  (Get-PSDrive -PSProvider FileSystem).Root
     }
 
     # search for any DLLs whose name begins with libcrypto
