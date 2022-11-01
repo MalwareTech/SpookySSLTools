@@ -4,7 +4,7 @@ $scan_all_drives = $false
 
 # set the directory to search for OpenSSL libraries in (default: C:\)
 # only needed if scanalldrives is $false !
-$search_directory = “C:\”
+$search_directory = "C:\"
 
 # set to $true to show only OpenSSL version vulnerable to this bug
 $only_vulnerable = $false
