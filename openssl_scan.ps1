@@ -8,7 +8,7 @@ $only_vulnerable = $false
 
 $confirm = Read-Host "This is an example script not meant for production use. To confirm that you understand and accept all responsibility, type: confirm"
 
-if ($confirm -eq “confirm”) {
+if ($confirm -eq "confirm") {
     echo "starting scan"
     if ($only_vulnerable) {
 	    $regex = "OpenSSL\s*3.0.[0-6]"
