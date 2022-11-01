@@ -1,5 +1,9 @@
 # BEGIN CONFIG
+# set to $true to scan all drives
+$scan_all_drives = $false
+
 # set the directory to search for OpenSSL libraries in (default: C:\)
+# only needed if scanalldrives is $false !
 $search_directory = “C:\”
 
 # set to $true to show only OpenSSL version vulnerable to this bug
@@ -16,6 +20,10 @@ if ($confirm -eq "confirm") {
 	    $regex = "OpenSSL\s*[0-9].[0-9].[0-9]"
     }
 
+    if ($scan_all_drives){
+        $search_directory =  (Get-PSDrive -PSProvider FileSystem).Root
+    }
+
     # search for any DLLs whose name begins with libcrypto
     Get-ChildItem -Path $search_directory -Include libcrypto*.dll,libssl*.dll -File -Recurse -ErrorAction SilentlyContinue | Foreach-Object {
 	    # use RegEx to parse the dll strings for an OpenSSL Version Number
@@ -26,5 +34,5 @@ if ($confirm -eq "confirm") {
 	    }
     }
 }else{
-    echo “aborting”
+    echo "aborting"
 }
