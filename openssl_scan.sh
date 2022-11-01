@@ -4,13 +4,9 @@ set -uo pipefail
 # BEGIN CONFIG
 # set to 1 to show only OpenSSL version vulnerable to this bug
 only_vulnerable=0
-if [[ "$1" = '-o' ]]; then
-    only_vulnerable=1
-    shift
-fi
 
 # set the directory to search for OpenSSL libraries in (default: /)
-search_directory="${1:-/}"
+search_directory="/"
 #END CONFIG
 
 echo 'This is an example script not meant for production use. To confirm that you understand and accept all responsibility, type: confirm'
